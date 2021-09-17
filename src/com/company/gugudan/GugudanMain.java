@@ -1,4 +1,4 @@
-package com.company;
+package com.company.gugudan;
 
 public class GugudanMain {
     public static void main(String[] args){

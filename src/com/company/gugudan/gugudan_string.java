@@ -1,6 +1,5 @@
-package com.company;
+package com.company.gugudan;
 
-import javax.script.ScriptContext;
 import java.util.Scanner;
 
 public class gugudan_string {

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.gugudan;
 
 import java.util.Scanner;
 
