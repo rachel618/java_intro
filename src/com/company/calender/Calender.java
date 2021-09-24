@@ -16,14 +16,37 @@ public class Calender {
             return LEAP_MAX_DAYS[month-1];
         return MAX_DAYS[month-1];
     }
-
+    public int getDaysofMonth(int year, int month){
+        int day=0;
+        if(isLeapYear(year)==true){
+            for(int i=0; i<month-1; i++)
+                day+=LEAP_MAX_DAYS[i];
+        }
+        else{
+            for(int i=0; i<month-1; i++)
+                day+=MAX_DAYS[i];
+        }
+        return day;
+    }
     public void printSimpleCalender(int year, int month){
-        System.out.println(" 일  월  화  수 목 금  토");
+        System.out.println("< "+ year + " 년 " + month+ " 월 >");
+        System.out.println(" SU MO TU WE TH FR SA");
         System.out.println("----------------------");
         int maxDay=getMaxDaysOfMonth(year,month);
+        int numofLeapyear, numofCommonyear,numofDay, weekday;
+        year--;
+        numofLeapyear=((year/400)*97 + (year%400)/4);
+        numofCommonyear=year-numofLeapyear;
+        numofDay=numofLeapyear*366+ numofCommonyear*365;
+        numofDay+=getDaysofMonth(year,month);
+        numofDay%=7;
+        for(int i=0; i<numofDay; i++){
+            System.out.print("   ");
+        }
+        //print blank space
         for(int i=1; i<=maxDay; i++){
             System.out.printf("%3d", i);
-            if(i%7==0) System.out.println();
+            if((numofDay+i)%7==0) System.out.println();
         }
         System.out.println();
 //        System.out.println(" 1  2  3  4  5  6  7");
